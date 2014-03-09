@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Todo List Page</title>
+		<style type="text/css">
+			h1,h2,h3,h4,h5,h6 {text-align:center;color: green}
+			body {background-image: url(01.jpg); }
+		</style>
+	</head>
+
+	<body>
+		<h1>Todo List Page</h1>
+			<div>
+				{% for todo in lists %}
+				<div>
+					<li>
+					<span class="">{{todo['context']}}</span>
+					<a href="{{url_for('delete',idd=todo['_id'])}}">Done</a>
+					</li>
+				</div>
+				{% endfor %}
+			</div>
+			<form method="post">
+				<div>
+					<input type="text" name="context">
+					<input type="submit">
+				</div>
+			</form>
+	</body>
+</html>
+
